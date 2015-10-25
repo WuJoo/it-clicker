@@ -21,14 +21,14 @@
         <div id="right-side">
             </br>
             DO KUPIENIA: </br>
-            <button type="button" onclick="">koszt 10</button></br>
-            <button type="button" onclick="">koszt 100</button></br>
-            <button type="button" onclick="">koszt 500</button></br>
-            <button type="button" onclick="">koszt 1000</button></br>
-            <button type="button" onclick="">koszt 5000</button></br>
-            <button type="button" onclick="">koszt 15000</button></br>
-            <button type="button" onclick="">koszt 50000</button></br>
-            <button type="button" onclick="">koszt 100000</button></br>
+            <button type="button" onclick="">koszt 10</button>
+            <button type="button" onclick="">koszt 100</button>
+            <button type="button" onclick="">koszt 500</button>
+            <button type="button" onclick="">koszt 1000</button>
+            <button type="button" onclick="">koszt 5000</button>
+            <button type="button" onclick="">koszt 15000</button>
+            <button type="button" onclick="">koszt 50000</button>
+            <button type="button" onclick="">koszt 100000</button>
         </div>
         
     </body>

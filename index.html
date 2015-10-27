@@ -3,6 +3,7 @@
 
     <head>
         <meta charset="utf-8">
+        <script src="jquery-1.11.3.min.js"></script>
         <script src="files/script.js"></script>
         <link rel="stylesheet" href="files/style.css"> 
     </head>
@@ -10,7 +11,7 @@
     <body>
     
         <div id="left-side">
-            <button type="button" onclick="onClick()">PROCESOR</button>
+            <button type="button" id="clicker" onclick="click()">PROCESOR</button>
         </div>
         
         <div id="middle">
@@ -19,32 +20,50 @@
         </div>
         
         <div id="right-side">
-            </br>
-            DO KUPIENIA: </br>
-            <button type="button" onclick="buyItem(1)">koszt 10</button></br>
-            <div id="costOfItem1">koszt 10</div></br>
-            <div id="showItem1"></div></br>
-            <button type="button" onclick="buyItem(2)">koszt 100</button></br>
-            <div id="costOfItem2">koszt 100</div></br>
-            <div id="showItem2"></div></br>
-            <button type="button" onclick="buyItem(3)">koszt 500</button></br>
-            <div id="costOfItem3">koszt 500</div></br>
-            <div id="showItem3"></div></br>
-            <button type="button" onclick="buyItem(4)">koszt 1000</button></br>
-            <div id="costOfItem4">koszt 1000</div></br>
-            <div id="showItem4"></div></br>
-            <button type="button" onclick="buyItem(5)">koszt 5000</button></br>
-            <div id="costOfItem5">koszt 5000</div></br>
-            <div id="showItem5"></div></br>
-            <button type="button" onclick="buyItem(6)">koszt 15000</button></br>
-            <div id="costOfItem6">koszt 15000</div></br>
-            <div id="showItem6"></div></br>
-            <button type="button" onclick="buyItem(7)">koszt 50000</button></br>
-            <div id="costOfItem7">koszt 50000</div></br>
-            <div id="showItem7"></div></br>
-            <button type="button" onclick="buyItem(8)">koszt 100000</button></br>
-            <div id="costOfItem8">koszt 10000</div></br>
-            <div id="showItem8"></div></br>
+            <h2>DO KUPIENIA:</h2>
+            <ul>
+                <li>
+                    <button class="buy" data-item="1">O</button>
+                    <div id="costOfItem1">koszt 10</div>
+                    <div id="showItem1"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="2">O</button>
+                    <div id="costOfItem2">koszt 100</div>
+                    <div id="showItem2"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="3">O</button>
+                    <div id="costOfItem3">koszt 500</div>
+                    <div id="showItem3"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="4">O</button>
+                    <div id="costOfItem4">koszt 1000</div>
+                    <div id="showItem4"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="5">O</button>
+                    <div id="costOfItem5">koszt 5000</div>
+                    <div id="showItem5"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="6">O</button>
+                    <div id="costOfItem6">koszt 15000</div>
+                    <div id="showItem6"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="7">O</button>
+                    <div id="costOfItem7">koszt 50000</div>
+                    <div id="showItem7"></div>
+                </li>
+                <li>
+                    <button class="buy" data-item="8">O</button>
+                    <div id="costOfItem8">koszt 10000</div>
+                    <div id="showItem8"></div>
+                </li>
+            </ul>
+
         </div>
         
     </body>

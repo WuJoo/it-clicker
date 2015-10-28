@@ -9,20 +9,21 @@ var item6 = {cost: 15000, quantity: 0, speedUp: 50};
 var item7 = {cost: 50000, quantity: 0, speedUp: 60};
 var item8 = {cost: 100000, quantity: 0, speedUp: 70};
 
-function click() {
-    points=points+1;
-    var divData=document.getElementById("showCount");
-    divData.innerHTML="Masz " + points +"$";
-}
+//przykład
+//var cat = {colour: "grey", name: "Spot", size: 46};
 
 //dodaje jeden co 0.1 sekundy
-//jednak złe rozwiązanie
-//albo znaleźć lepsze, albo to jakoś ogarnąć
 function start() {
-    setInterval(function(){ click(); }, 10000);
+    setInterval(function(){ onClick(); }, 10000);
     avg = avg + 0.1;
     var divData=document.getElementById("average");
     divData.innerHTML="Średnio co sekundę dostajesz: " + avg.toFixed(1) +"$";  
+}
+
+function onClick() {
+    points=points+1;
+    var divData=document.getElementById("showCount");
+    divData.innerHTML="Masz " + points +"$";
 }
 
 function buyItem(item) {
@@ -84,16 +85,15 @@ function buyItem(item) {
     }
 }
 
-/*
 $(document).ready(function() {
-    $('#clicker').click(function() {
-        click();
+
+    $( '.clicker' ).click(function() {
+        onClick();
     });
     
-    $('.buy').on('click', function() {
+    $('.buy').click(function() {
         var item = parseInt($(this).attr('data-item'));
         buyItem(item);
     });
-});
-*/
 
+});

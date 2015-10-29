@@ -1,0 +1,7 @@
+1. poprzerabiać javascripta pod jquery
+2. ogarnąć funkcję buyItem jakoś mądrzej - bez switcha - pomysł ze słownikiem
+3. dobrać odpowiednie wagi dla zakupów
+4. dodać animate z jquery do(?) chyba updateShowPoints()
+5. dodać stopkę i temu podobne pierdoły
+6. ogarnąć strukturę strony
+7. zrobić cssy! :o

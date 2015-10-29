@@ -1,11 +1,3 @@
-/*
-TODO:
-1. poprzerabiać to wszystko pod jquery
-2. ogarnąć funkcję buyItem jakoś mądrzej
-3. dobrać odpowiednie wagi dla zakupów
-4. (...)
-*/
-
 var realPoints=0.0;
 var incrementer=0.0;
 var item1 = {cost: 10, quantity: 0, speedUp: 1};

@@ -1,5 +1,13 @@
-var points=0;
-var avg=0.0;
+/*
+TODO:
+1. poprzerabiać to wszystko pod jquery
+2. ogarnąć funkcję buyItem jakoś mądrzej
+3. dobrać odpowiednie wagi dla zakupów
+4. (...)
+*/
+
+var realPoints=0.0;
+var incrementer=0.0;
 var item1 = {cost: 10, quantity: 0, speedUp: 1};
 var item2 = {cost: 100, quantity: 0, speedUp: 10};
 var item3 = {cost: 500, quantity: 0, speedUp: 20};
@@ -9,21 +17,29 @@ var item6 = {cost: 15000, quantity: 0, speedUp: 50};
 var item7 = {cost: 50000, quantity: 0, speedUp: 60};
 var item8 = {cost: 100000, quantity: 0, speedUp: 70};
 
-//przykład
-//var cat = {colour: "grey", name: "Spot", size: 46};
+function updateShowPoints() {
+    var divData=document.getElementById("showPoints");
+    divData.innerHTML="Masz " + parseInt(realPoints) +"$";
+}
 
-//dodaje jeden co 0.1 sekundy
+function updateShowAverage() {
+    var divData=document.getElementById("showAverage");
+    divData.innerHTML="Średnio co sekundę dostajesz: " + incrementer.toFixed(1) +"$";
+}
+
 function start() {
-    setInterval(function(){ onClick(); }, 10000);
-    avg = avg + 0.1;
-    var divData=document.getElementById("average");
-    divData.innerHTML="Średnio co sekundę dostajesz: " + avg.toFixed(1) +"$";  
+    setInterval(
+        function(){ 
+            realPoints = realPoints + incrementer; 
+            updateShowAverage();
+            updateShowPoints();
+        }, 
+        1000);
 }
 
 function onClick() {
-    points=points+1;
-    var divData=document.getElementById("showCount");
-    divData.innerHTML="Masz " + points +"$";
+    realPoints=realPoints+1.0;
+    updateShowPoints();
 }
 
 function buyItem(item) {
@@ -71,23 +87,25 @@ function buyItem(item) {
             break;
     }
     
-    if (refToItem.cost <= points) {
-        points=points-refToItem.cost;
-        for (i = 0; i < refToItem.speedUp; i++) {
-            start();
-        }
+    if (refToItem.cost <= parseInt(realPoints)) {
+        realPoints=realPoints-refToItem.cost;
+        incrementer=incrementer+(refToItem.speedUp*0.1);
         refToItem.quantity=refToItem.quantity+1;
         refToItem.cost=Math.round(1.2*refToItem.cost)
         divQuantity.innerHTML=""+refToItem.quantity+"";
         divCost.innerHTML="Koszt "+ refToItem.cost +"";
         var divPoints=document.getElementById("showCount");
-        divPoints.innerHTML="Masz " + points +"$";
+        divPoints.innerHTML="Masz " + parseInt(realPoints) +"$";
     }
 }
 
 $(document).ready(function() {
 
-    $( '.clicker' ).click(function() {
+    updateShowPoints();
+    updateShowAverage();
+    start();
+    
+    $('.clicker').click(function() {
         onClick();
     });
     

@@ -1,13 +1,17 @@
 var realPoints=0.0;
 var incrementer=0.0;
-var item1 = {cost: 10, quantity: 0, speedUp: 1};
-var item2 = {cost: 100, quantity: 0, speedUp: 10};
-var item3 = {cost: 500, quantity: 0, speedUp: 20};
-var item4 = {cost: 1000, quantity: 0, speedUp: 30};
-var item5 = {cost: 5000, quantity: 0, speedUp: 40};
-var item6 = {cost: 15000, quantity: 0, speedUp: 50};
-var item7 = {cost: 50000, quantity: 0, speedUp: 60};
-var item8 = {cost: 100000, quantity: 0, speedUp: 70};
+
+//speedUp = x => x*0.1 points per second
+var item1 = {cost: 15, quantity: 0, speedUp: 1};
+var item2 = {cost: 100, quantity: 0, speedUp: 5};
+var item3 = {cost: 500, quantity: 0, speedUp: 40};
+var item4 = {cost: 3000, quantity: 0, speedUp: 100};
+var item5 = {cost: 10000, quantity: 0, speedUp: 400};
+var item6 = {cost: 40000, quantity: 0, speedUp: 1000};
+var item7 = {cost: 200000, quantity: 0, speedUp: 4000};
+var item8 = {cost: 1667000, quantity: 0, speedUp: 66660};
+var items = {"item1": item1, "item2": item2, "item3": item3, "item4": item4,
+            "item5": item5, "item6": item6, "item7": item7, "item8": item8};
 
 function updateShowPoints() {
     var divData=document.getElementById("showPoints");
@@ -35,55 +39,14 @@ function onClick() {
 }
 
 function buyItem(item) {
-
-    switch (item) {
-        case 1:
-            refToItem = item1;
-            var divQuantity=document.getElementById("showItem1");
-            var divCost=document.getElementById("costOfItem1");
-            break;
-        case 2:
-            refToItem = item2;
-            var divQuantity=document.getElementById("showItem2");
-            var divCost=document.getElementById("costOfItem2");
-            break;
-        case 3:
-            refToItem = item3;
-            var divQuantity=document.getElementById("showItem3");
-            var divCost=document.getElementById("costOfItem3");
-            break;
-        case 4:
-            refToItem = item4;
-            var divQuantity=document.getElementById("showItem4");
-            var divCost=document.getElementById("costOfItem4");
-            break;
-        case 5:
-            refToItem = item5;
-            var divQuantity=document.getElementById("showItem5");
-            var divCost=document.getElementById("costOfItem5");
-            break;
-        case 6:
-            refToItem = item6;
-            var divQuantity=document.getElementById("showItem6");
-            var divCost=document.getElementById("costOfItem6");
-            break;
-        case 7:
-            refToItem = item7;
-            var divQuantity=document.getElementById("showItem7");
-            var divCost=document.getElementById("costOfItem7");
-            break;
-        case 8:
-            refToItem = item8;
-            var divQuantity=document.getElementById("showItem8");
-            var divCost=document.getElementById("costOfItem8");
-            break;
-    }
-    
+    refToItem = items["item"+item];
     if (refToItem.cost <= parseInt(realPoints)) {
+        var divQuantity=document.getElementById("showItem"+item);
+        var divCost=document.getElementById("costOfItem"+item);
         realPoints=realPoints-refToItem.cost;
         incrementer=incrementer+(refToItem.speedUp*0.1);
         refToItem.quantity=refToItem.quantity+1;
-        refToItem.cost=Math.round(1.2*refToItem.cost)
+        refToItem.cost=Math.round(1.15*refToItem.cost)
         divQuantity.innerHTML=""+refToItem.quantity+"";
         divCost.innerHTML="Koszt "+ refToItem.cost +"";
         var divPoints=document.getElementById("showCount");
@@ -102,7 +65,7 @@ $(document).ready(function() {
     });
     
     $('.buy').click(function() {
-        var item = parseInt($(this).attr('data-item'));
+        var item = $(this).attr('data-item');
         buyItem(item);
     });
 

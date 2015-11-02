@@ -17,3 +17,10 @@ body {
     width: 33%;
 }
 
+.clicker {
+    cursor: pointer;
+}
+
+.buy {
+    cursor: pointer;
+}

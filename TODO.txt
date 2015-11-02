@@ -5,6 +5,4 @@
 5. czasomierz
 6. zapisywanie stanu gry(w cookie?)
 7. lista rekordów(zapisywana w cookie?)
-8. jakiś fajniejszy kursor na klikanie
-9. obrazki na przedmioty?(paint XD)
-
+8. obrazki na przedmioty?(paint XD)

@@ -1,5 +1,10 @@
 1. poprzerabiać javascripta pod jquery
 2. dodać animate z jquery do(?) chyba updateShowPoints()
-3. dodać stopkę i temu podobne pierdoły
-4. ogarnąć strukturę strony
-5. zrobić cssy! :o
+3. ogarnąć strukturę strony
+4. zrobić cssy! :o
+5. czasomierz
+6. zapisywanie stanu gry(w cookie?)
+7. lista rekordów(zapisywana w cookie?)
+8. jakiś fajniejszy kursor na klikanie
+9. obrazki na przedmioty?(paint XD)
+

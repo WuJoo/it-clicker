@@ -1,1 +1,19 @@
+body {
+    background-color: #9999E6;
+}
+
+#left-side {
+    float: left;
+    width: 33%;
+}
+
+#middle-side {
+    float: left;
+    width: 34%;
+}
+
+#right-side {
+    float: left;
+    width: 33%;
+}
 

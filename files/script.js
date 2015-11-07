@@ -1,17 +1,25 @@
-var realPoints=0.0;
-var incrementer=0.0;
+var realPoints;
+var incrementer;
 
-//speedUp = x => x*0.1 points per second
-var item1 = {cost: 15, quantity: 0, speedUp: 1};
-var item2 = {cost: 100, quantity: 0, speedUp: 5};
-var item3 = {cost: 500, quantity: 0, speedUp: 40};
-var item4 = {cost: 3000, quantity: 0, speedUp: 100};
-var item5 = {cost: 10000, quantity: 0, speedUp: 400};
-var item6 = {cost: 40000, quantity: 0, speedUp: 1000};
-var item7 = {cost: 200000, quantity: 0, speedUp: 4000};
-var item8 = {cost: 1667000, quantity: 0, speedUp: 66660};
-var items = {"item1": item1, "item2": item2, "item3": item3, "item4": item4,
+//pytanie czemu ja tego nie robię w tablicy?!
+//stablicować to potem, priorytetowe!
+var item1, item2, item3, item4, item5, item6, item7, item8, items;
+            
+function initVars() {
+    realPoints=0.0;
+    incrementer=0.0;
+    //speedUp = x => x*0.1 points per second
+    item1 = {cost: 15, quantity: 0, speedUp: 1};
+    item2 = {cost: 100, quantity: 0, speedUp: 5};
+    item3 = {cost: 500, quantity: 0, speedUp: 40};
+    item4 = {cost: 3000, quantity: 0, speedUp: 100};
+    item5 = {cost: 10000, quantity: 0, speedUp: 400};
+    item6 = {cost: 40000, quantity: 0, speedUp: 1000};
+    item7 = {cost: 200000, quantity: 0, speedUp: 4000};
+    item8 = {cost: 1667000, quantity: 0, speedUp: 66660};
+    items = {"item1": item1, "item2": item2, "item3": item3, "item4": item4,
             "item5": item5, "item6": item6, "item7": item7, "item8": item8};
+}
 
 function updateShowPoints() {
     $("#showPoints").html("Masz " + parseInt(realPoints) +"$");
@@ -60,14 +68,9 @@ function buyItem(item) {
 function saveGame() {
     localStorage.setItem("realPoints", realPoints);
     localStorage.setItem("incrementer", incrementer);
-    localStorage.setItem("item1", JSON.stringify(item1));
-    localStorage.setItem("item2", JSON.stringify(item2));
-    localStorage.setItem("item3", JSON.stringify(item3));
-    localStorage.setItem("item4", JSON.stringify(item4));
-    localStorage.setItem("item5", JSON.stringify(item5));
-    localStorage.setItem("item6", JSON.stringify(item6));
-    localStorage.setItem("item7", JSON.stringify(item7));
-    localStorage.setItem("item8", JSON.stringify(item8));
+    for(i = 1; i < 9; i++) {
+        localStorage.setItem("item"+i, JSON.stringify(items["item"+i]));
+    }
 }
 
 function loadGame() {
@@ -103,16 +106,7 @@ function resetGame() {
     localStorage.clear();
     realPoints=0.0;
     incrementer=0.0;
-    item1 = {cost: 15, quantity: 0, speedUp: 1};
-    item2 = {cost: 100, quantity: 0, speedUp: 5};
-    item3 = {cost: 500, quantity: 0, speedUp: 40};
-    item4 = {cost: 3000, quantity: 0, speedUp: 100};
-    item5 = {cost: 10000, quantity: 0, speedUp: 400};
-    item6 = {cost: 40000, quantity: 0, speedUp: 1000};
-    item7 = {cost: 200000, quantity: 0, speedUp: 4000};
-    item8 = {cost: 1667000, quantity: 0, speedUp: 66660};
-    items = {"item1": item1, "item2": item2, "item3": item3, "item4": item4,
-            "item5": item5, "item6": item6, "item7": item7, "item8": item8};
+    initVars();
     updateShowPoints();
     updateShowAverage();
     for(i = 1; i < 9; i++) {
@@ -122,6 +116,7 @@ function resetGame() {
 }
 
 function onStart() {
+    initVars();
     loadGame();
     updateShowPoints();
     updateShowAverage();

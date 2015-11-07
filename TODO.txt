@@ -3,6 +3,8 @@
 3. ogarnąć strukturę strony
 4. zrobić cssy! :o
 5. czasomierz
-6. zapisywanie stanu gry(w cookie?)
+6. zapisywanie stanu gry co jakiś czas? (pytanie czy potrzebne to)
 7. lista rekordów(zapisywana w cookie?)
 8. obrazki na przedmioty?(paint XD)
+9. dodać coś z ajaxa żeby było(tylko co?)
+10. dodać coś interaktywnego z jquery(?)

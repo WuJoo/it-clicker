@@ -1,4 +1,4 @@
-1. poprzerabiać javascripta pod jquery
+1. koszt i ilość powinny być na buttonach!!!!
 2. dodać animate z jquery do(?) chyba updateShowPoints()
 3. ogarnąć strukturę strony
 4. zrobić cssy! :o
@@ -8,3 +8,5 @@
 8. obrazki na przedmioty?(paint XD)
 9. dodać coś z ajaxa żeby było(tylko co?)
 10. dodać coś interaktywnego z jquery(?)
+11. dodanie jakiegoś efektu po kliknięciu na procka, i ewentualnie jakaś lepsza grafika niż ten procek
+12. znaleźć jakąś fajną czcionkę, która będzie pasowała do całości

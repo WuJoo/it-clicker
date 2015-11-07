@@ -1,6 +1,5 @@
 body {
-    <!--background-color: #9999E6;-->
-	background-color: #000000;
+	background-color: #7ab4d9;
 }
 
 #left-side {
@@ -25,3 +24,18 @@ body {
 .buy {
     cursor: pointer;
 }
+
+.buy, .save, .reset {
+  -webkit-border-radius: 47;
+  -moz-border-radius: 47;
+  border-radius: 47px;
+  font-family: Courier New;
+  color: #000000;
+  font-size: 20px;
+  background: #2e7eb3;
+  padding: 30px 30px 30px 30px;
+  text-decoration: none;
+}
+
+
+

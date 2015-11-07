@@ -30,7 +30,7 @@ function updateShowItemQuantity(i) {
 
 function updateShowAllItemsQuantity() {
     for(i = 1; i < 9; i++) {
-        $("#showItem"+i).html(items[i]);
+        $("#showItem"+i).html(items[i].quantity);
     }
 }
 
@@ -40,7 +40,7 @@ function updateShowItemCost(i) {
 
 function updateShowAllItemsCost() {
     for(i = 1; i < 9; i++) {
-        $("#costOfItem"+i).html("Koszt "+items[i]);
+        $("#costOfItem"+i).html("Koszt "+items[i].cost);
     }
 }
 
@@ -97,10 +97,8 @@ function resetGame() {
     initVars();
     updateShowPoints();
     updateShowAverage();
-    for(i = 1; i < 9; i++) {
-        updateShowItemQuantity(i);
-        updateShowItemCost(i);
-    }
+    updateShowAllItemsQuantity();
+    updateShowAllItemsCost();
 }
 
 function onStart() {

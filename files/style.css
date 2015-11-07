@@ -17,11 +17,7 @@ body {
     width: 33%;
 }
 
-.clicker {
-    cursor: pointer;
-}
-
-.buy {
+.clicker, .buy, .save, .reset {
     cursor: pointer;
 }
 

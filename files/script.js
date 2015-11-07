@@ -25,12 +25,12 @@ function updateShowAverage() {
 }
 
 function updateShowItemQuantity(i) {
-    $("#showItem"+i).html(items[i].quantity);
+    $("#showItem"+i).html("ilość:" + items[i].quantity);
 }
 
 function updateShowAllItemsQuantity() {
     for(i = 1; i < 9; i++) {
-        $("#showItem"+i).html(items[i].quantity);
+        $("#showItem"+i).html("ilość:" + items[i].quantity);
     }
 }
 
@@ -46,9 +46,8 @@ function updateShowAllItemsCost() {
 
 function runPointsCounter() {
     setInterval(
-        function() { 
-            realPoints = realPoints + incrementer; 
-            updateShowAverage();
+        function() {
+            realPoints = realPoints + incrementer;
             updateShowPoints();
         }, 
     1000);
@@ -65,7 +64,8 @@ function buyItem(i) {
         realPoints=realPoints-item.cost;
         incrementer=incrementer+(item.speedUp*0.1);
         item.quantity=item.quantity+1;
-        item.cost=Math.round(1.15*item.cost)
+        item.cost=Math.round(1.12*item.cost)
+        updateShowAverage();
         updateShowItemQuantity(i);
         updateShowItemCost(i);
         updateShowPoints();
@@ -86,8 +86,6 @@ function loadGame() {
         incrementer = parseFloat(localStorage.getItem("incrementer"));
         for(i = 1; i < 9; i++) {
             items[i] = JSON.parse(localStorage.getItem(i));
-            updateShowItemQuantity(i);
-            updateShowItemCost(i);
         }
     }
 }
@@ -104,6 +102,8 @@ function resetGame() {
 function onStart() {
     initVars();
     loadGame();
+    updateShowAllItemsQuantity();
+    updateShowAllItemsCost();
     updateShowPoints();
     updateShowAverage();
     runPointsCounter();

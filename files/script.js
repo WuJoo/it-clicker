@@ -86,8 +86,8 @@ function loadGame() {
         incrementer = parseFloat(localStorage.getItem("incrementer"));
         for(i = 1; i < 9; i++) {
             items[i] = JSON.parse(localStorage.getItem(i));
-            updateShowItemQuantity(i, items[i].quantity);
-            updateShowItemCost(i, items[i].cost);
+            updateShowItemQuantity(i);
+            updateShowItemCost(i);
         }
     }
 }

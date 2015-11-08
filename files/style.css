@@ -33,3 +33,7 @@ button {
 button:hover {
     background-color: #CCCCB3;
 }
+
+ul {
+    list-style-type: none;
+}

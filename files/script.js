@@ -80,6 +80,16 @@ function saveGame() {
     }
 }
 
+
+//automatyczne zapisanie stanu co 30 sek
+function automaticSave() {
+    setInterval(
+        function() {
+            saveGame();
+        }, 
+    30000);
+}
+
 function loadGame() {
     if (localStorage.length > 0) {
         realPoints = parseFloat(localStorage.getItem("realPoints"));
@@ -107,6 +117,7 @@ function onStart() {
     updateShowPoints();
     updateShowAverage();
     runPointsCounter();
+    automaticSave();
     
     $('.clicker').click(function() {
         onClick();

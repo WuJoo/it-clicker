@@ -1,14 +1,12 @@
-1. koszt i ilość powinny być na buttonach!!!!
-2. dodać animate z jquery do(?) chyba updateShowPoints()
-3. ogarnąć strukturę strony
-4. zrobić cssy! :o
-5. czasomierz
-6. zapisywanie stanu gry co jakiś czas? (pytanie czy potrzebne to)
-7. lista rekordów(zapisywana w cookie?)
-8. obrazki na przedmioty?(paint XD)
-9. dodać coś z ajaxa żeby było(tylko co?)
-10. dodać coś interaktywnego z jquery(?)
-11. dodanie jakiegoś efektu po kliknięciu na procka, i ewentualnie jakaś lepsza grafika niż ten procek
-12. znaleźć jakąś fajną czcionkę, która będzie pasowała do całości
-13. zablokowanie tych itemów na które nas nie stać(żeby były takie poszarzone w stosunku do tych, na które nas stać)
-14. wyświetlanie info o itemie po najechaniu na item
+1. dodać animate z jquery do(?) chyba updateShowPoints()
+2. ogarnąć strukturę strony
+3. zrobić cssy! :o
+4. czasomierz
+5. lista rekordów(zapisywana w cookie?)
+6. obrazki na przedmioty?(paint XD)
+7. dodać coś z ajaxa żeby było(tylko co?)
+8. dodać coś interaktywnego z jquery(?)
+9. dodanie jakiegoś efektu po kliknięciu na procka, i ewentualnie jakaś lepsza grafika niż ten procek
+10. znaleźć jakąś fajną czcionkę, która będzie pasowała do całości
+11. zablokowanie tych itemów na które nas nie stać(żeby były takie poszarzone w stosunku do tych, na które nas stać)
+12. wyświetlanie info o itemie po najechaniu na item

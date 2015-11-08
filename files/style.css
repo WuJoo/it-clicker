@@ -19,19 +19,13 @@ body {
 
 .clicker, .buy, .save, .reset {
     cursor: pointer;
+    -webkit-border-radius: 47;
+    -moz-border-radius: 47;
+    border-radius: 47px;
+    font-family: Courier New;
+    color: #000000;
+    font-size: 20px;
+    background: #2e7eb3;
+    padding: 30px 30px 30px 30px;
+    text-decoration: none;
 }
-
-.buy, .save, .reset {
-  -webkit-border-radius: 47;
-  -moz-border-radius: 47;
-  border-radius: 47px;
-  font-family: Courier New;
-  color: #000000;
-  font-size: 20px;
-  background: #2e7eb3;
-  padding: 30px 30px 30px 30px;
-  text-decoration: none;
-}
-
-
-

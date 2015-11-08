@@ -15,10 +15,10 @@
         <div id="left-side">
             <ul>
                 <li>
-                    <div id="showPoints"></div>
+                    <div id="showPoints" class="text"></div>
                 </li>
                 <li>
-                    <div id="showAverage"></div>
+                    <div id="showAverage" class="text"></div>
                 </li>
                 <li>
                     <button class="save">Save Game</button>
@@ -30,28 +30,30 @@
         </div>
         
         <div id="middle-side">
-            <button class="clicker">Processor</button>
+            <button class="clicker">
+                <div class="itemName">Processor</div>
+            </button>
         </div>
         
         <div id="right-side">
-            <h2>DO KUPIENIA:</h2>
+            <div class="text">Store</div>
             <ul>
                 <li>
-                    <button class="buy" data-item="1">
+                    <button class="buy" data-item="1" disabled>
                         <div class="itemName">ITEM 1</div>
                         <div id="costOfItem1">koszt 15</div>
                         <div id="showItem1"></div>
                     </button>
                 </li>
                 <li>
-                    <button class="buy" data-item="2">
+                    <button class="buy" data-item="2" disabled>
                         <div class="itemName">ITEM 2</div>
                         <div id="costOfItem2">koszt 100</div>
                         <div id="showItem2"></div>
                     </button>     
                 </li>
                 <li>
-                    <button class="buy" data-item="3">
+                    <button class="buy" data-item="3" disabled>
                         <div class="itemName">ITEM 3</div>
                         <div id="costOfItem3">koszt 500</div>
                         <div id="showItem3"></div>
@@ -59,35 +61,35 @@
                     
                 </li>
                 <li>
-                    <button class="buy" data-item="4">
+                    <button class="buy" data-item="4" disabled>
                         <div class="itemName">ITEM 4</div>
                         <div id="costOfItem4">koszt 3000</div>
                         <div id="showItem4"></div>
                     </button>
                 </li>
                 <li>
-                    <button class="buy" data-item="5">
+                    <button class="buy" data-item="5" disabled>
                         <div class="itemName">ITEM 5</div>
                         <div id="costOfItem5">koszt 10000</div>
                         <div id="showItem5"></div>
                     </button>
                 </li>
                 <li>
-                    <button class="buy" data-item="6">
+                    <button class="buy" data-item="6" disabled>
                         <div class="itemName">ITEM 6</div>
                         <div id="costOfItem6">koszt 40000</div>
                         <div id="showItem6"></div>
                     </button>
                 </li>
                 <li>
-                    <button class="buy" data-item="7">
+                    <button class="buy" data-item="7" disabled>
                         <div class="itemName">ITEM 7</div>
                         <div id="costOfItem7">koszt 200000</div>
                         <div id="showItem7"></div>
                     </button> 
                 </li>
                 <li>
-                    <button class="buy" data-item="8">
+                    <button class="buy" data-item="8" disabled>
                         <div class="itemName">ITEM 8</div>
                         <div id="costOfItem8">koszt 1667000</div>
                         <div id="showItem8"></div>
@@ -97,8 +99,14 @@
 
         </div>
         <footer>
-            IT-Clicker v0.01</br>
-            Autor: Wiktor Jeziorski
+            <ul>
+                <li>
+                    <div class="text">IT-Clicker v0.01</div>
+                </li>
+                <li>
+                    <div class="text">authors: Wiktor Jeziorski, Michał Wrubel</div>
+                </li>
+            </ul>
         </footer>
         
     </body>

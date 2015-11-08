@@ -17,30 +17,30 @@ function initVars() {
 }
 
 function updateShowPoints() {
-    $("#showPoints").html("Masz " + parseInt(realPoints) +"$");
+    $("#showPoints").html("You have " + parseInt(realPoints) +"$");
 }
 
 function updateShowAverage() {
-    $("#showAverage").html("Średnio co sekundę dostajesz: " + incrementer.toFixed(1) +"$");
+    $("#showAverage").html("per second " + incrementer.toFixed(1) +"$");
 }
 
 function updateShowItemQuantity(i) {
-    $("#showItem"+i).html("ilość:" + items[i].quantity);
+    $("#showItem"+i).html("Quantity " + items[i].quantity);
 }
 
 function updateShowAllItemsQuantity() {
     for(i = 1; i < 9; i++) {
-        $("#showItem"+i).html("ilość:" + items[i].quantity);
+        $("#showItem"+i).html("Quantity " + items[i].quantity);
     }
 }
 
 function updateShowItemCost(i) {
-    $("#costOfItem"+i).html("Koszt "+items[i].cost);
+    $("#costOfItem"+i).html("Cost "+items[i].cost);
 }
 
 function updateShowAllItemsCost() {
     for(i = 1; i < 9; i++) {
-        $("#costOfItem"+i).html("Koszt "+items[i].cost);
+        $("#costOfItem"+i).html("Cost "+items[i].cost);
     }
 }
 
@@ -56,6 +56,7 @@ function runPointsCounter() {
 function onClick() {
     realPoints=realPoints+1.0;
     updateShowPoints();
+    lockItems();
 }
 
 function buyItem(i) {
@@ -69,6 +70,19 @@ function buyItem(i) {
         updateShowItemQuantity(i);
         updateShowItemCost(i);
         updateShowPoints();
+        lockItems();
+    }
+}
+
+function lockItems() {
+    var lockedItems = document.getElementsByClassName("buy");
+    for(i = 0; i < lockedItems.length; i++) {
+        if(items[i+1].cost <= parseInt(realPoints)) {
+            lockedItems[i].disabled = false;
+        }
+        else {
+            lockedItems[i].disabled = true;
+        }
     }
 }
 
@@ -107,6 +121,7 @@ function resetGame() {
     updateShowAverage();
     updateShowAllItemsQuantity();
     updateShowAllItemsCost();
+    lockItems();
 }
 
 function onStart() {
@@ -116,6 +131,7 @@ function onStart() {
     updateShowAllItemsCost();
     updateShowPoints();
     updateShowAverage();
+    lockItems();
     runPointsCounter();
     automaticSave();
     

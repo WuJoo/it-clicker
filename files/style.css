@@ -34,6 +34,15 @@ button:hover {
     background-color: #CCCCB3;
 }
 
+button:disabled {
+    background-color: #75A3A3;
+}
+
 ul {
     list-style-type: none;
+}
+
+.text {
+    font-style: italic;
+    font-size: large;
 }

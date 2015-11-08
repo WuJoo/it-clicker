@@ -17,7 +17,7 @@ body {
     width: 33%;
 }
 
-.clicker, .buy, .save, .reset {
+button {
     cursor: pointer;
     -webkit-border-radius: 47;
     -moz-border-radius: 47;
@@ -28,4 +28,8 @@ body {
     background: #2e7eb3;
     padding: 30px 30px 30px 30px;
     text-decoration: none;
+}
+
+button:hover {
+    background-color: #CCCCB3;
 }

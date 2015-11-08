@@ -10,3 +10,5 @@
 10. dodać coś interaktywnego z jquery(?)
 11. dodanie jakiegoś efektu po kliknięciu na procka, i ewentualnie jakaś lepsza grafika niż ten procek
 12. znaleźć jakąś fajną czcionkę, która będzie pasowała do całości
+13. zablokowanie tych itemów na które nas nie stać(żeby były takie poszarzone w stosunku do tych, na które nas stać)
+14. wyświetlanie info o itemie po najechaniu na item

@@ -2,6 +2,8 @@ var realPoints;
 var incrementer;
 var items = {};
 var amountOfItems;
+var upClass = 'toggle-up';
+var downClass = 'toggle-down';
 
 function initVars() {
     realPoints=0.0;
@@ -81,8 +83,19 @@ function runPointsCounter() {
     1000);
 }
 
+function toggle() {
+    var clicker = document.querySelector('.clicker');
+    if(~clicker.className.indexOf(downClass)) {
+        clicker.className = clicker.className.replace(downClass, upClass);
+    } 
+    else {
+        clicker.className = clicker.className.replace(upClass, downClass);
+    }
+}
+
 function onClick() {
     realPoints=realPoints+1.0;
+    toggle();
     updateShowPoints();
     lockItems();
 }

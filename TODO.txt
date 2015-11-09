@@ -3,12 +3,10 @@ wersja podstawowa:
     -layout
     -ładne buttony po lewej
     -ramki po prawej
-    -obrazki odpowiedniej wielkości
     -odpowiednie rozmiary elementów
     -czcionka
 2. dodać animate z jquery do updateShowPoints()
-3. obrazki - kwadratowe ikonki języków programowania z googli
-4. dodanie jakiegoś efektu po kliknięciu na symbol stacka
+3. dodanie jakiegoś efektu po kliknięciu na symbol stacka
 
 wersja rozszerzona:
 1. bonusy do kupienia

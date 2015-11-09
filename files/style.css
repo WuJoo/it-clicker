@@ -1,5 +1,5 @@
 body {
-	background-color: #7ab4d9;
+	background-color: #FBFBFB;
 }
 
 #left-side {
@@ -17,7 +17,9 @@ body {
     width: 33%;
 }
 
-button {
+
+/*
+.buy {
     cursor: pointer;
     -webkit-border-radius: 47;
     -moz-border-radius: 47;
@@ -25,18 +27,20 @@ button {
     font-family: Courier New;
     color: #000000;
     font-size: 20px;
-    background: #2e7eb3;
+    background: #0BC2FF;
     padding: 30px 30px 30px 30px;
     text-decoration: none;
 }
 
-button:hover {
+.buy:hover {
     background-color: #CCCCB3;
 }
 
-button:disabled {
-    background-color: #75A3A3;
+.buy:disabled {
+    background-color: #0099CC;
 }
+*/
+
 
 ul {
     list-style-type: none;

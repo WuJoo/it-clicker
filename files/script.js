@@ -1,10 +1,12 @@
 var realPoints;
 var incrementer;
 var items = {};
+var amountOfItems;
 
 function initVars() {
     realPoints=0.0;
     incrementer=0.0;
+    amountOfItems=0;
     //speedUp = x => x*0.1 points per second
     items[1] = {cost: 15, quantity: 0, speedUp: 1};
     items[2] = {cost: 100, quantity: 0, speedUp: 5};
@@ -16,31 +18,56 @@ function initVars() {
     items[8] = {cost: 1667000, quantity: 0, speedUp: 66660};
 }
 
+function initExp() {
+    var exps = document.getElementsByClassName("exp");
+    var i;
+    for (i = 0; i < exps.length; i++) {
+        var x = items[i+1].speedUp/10;
+        exps[i].innerHTML = "each written line gives you " + x.toFixed(1) + " exp each second";
+    }
+}
+
+function updateShowItemExp(i) {
+    var temp = (items[i].speedUp/10) * items[i].quantity;
+    $("#exp"+i).html(""+items[i].quantity+" lines gives you "+temp.toFixed(1)+" exp");
+}
+
+function updateShowAllItemsExp() {
+    for(i = 1; i < 9; i++) {
+        var temp = (items[i].speedUp/10) * items[i].quantity;
+        $("#exp"+i).html(""+items[i].quantity+" lines gives you "+temp.toFixed(1)+" exp");
+    }
+}
+
+function updateShowAmountOfItems() {
+    $("#showAmountOfItems").html("You wrote " + amountOfItems +" lines of code");
+}
+
 function updateShowPoints() {
-    $("#showPoints").html("You have " + parseInt(realPoints) +"$");
+    $("#showPoints").html("You have " + parseInt(realPoints) +" exp");
 }
 
 function updateShowAverage() {
-    $("#showAverage").html("per second " + incrementer.toFixed(1) +"$");
+    $("#showAverage").html("every second you get " + incrementer.toFixed(1) +" exp");
 }
 
 function updateShowItemQuantity(i) {
-    $("#showItem"+i).html("Quantity " + items[i].quantity);
+    $("#showItem"+i).html("Lines of code " + items[i].quantity);
 }
 
 function updateShowAllItemsQuantity() {
     for(i = 1; i < 9; i++) {
-        $("#showItem"+i).html("Quantity " + items[i].quantity);
+        $("#showItem"+i).html("Lines of code " + items[i].quantity);
     }
 }
 
 function updateShowItemCost(i) {
-    $("#costOfItem"+i).html("Cost "+items[i].cost);
+    $("#costOfItem"+i).html("Cost "+items[i].cost+" exp");
 }
 
 function updateShowAllItemsCost() {
     for(i = 1; i < 9; i++) {
-        $("#costOfItem"+i).html("Cost "+items[i].cost);
+        $("#costOfItem"+i).html("Cost "+items[i].cost+" exp");
     }
 }
 
@@ -49,6 +76,7 @@ function runPointsCounter() {
         function() {
             realPoints = realPoints + incrementer;
             updateShowPoints();
+            lockItems();
         }, 
     1000);
 }
@@ -65,7 +93,10 @@ function buyItem(i) {
         realPoints=realPoints-item.cost;
         incrementer=incrementer+(item.speedUp*0.1);
         item.quantity=item.quantity+1;
-        item.cost=Math.round(1.12*item.cost)
+        amountOfItems=amountOfItems+1;
+        item.cost=Math.round(1.12*item.cost);
+        updateShowItemExp(i)
+        updateShowAmountOfItems();
         updateShowAverage();
         updateShowItemQuantity(i);
         updateShowItemCost(i);
@@ -89,6 +120,7 @@ function lockItems() {
 function saveGame() {
     localStorage.setItem("realPoints", realPoints);
     localStorage.setItem("incrementer", incrementer);
+    localStorage.setItem("amountOfItems", amountOfItems);
     for(i = 1; i < 9; i++) {
         localStorage.setItem(i, JSON.stringify(items[i]));
     }
@@ -105,13 +137,24 @@ function automaticSave() {
 }
 
 function loadGame() {
-    if (localStorage.length > 0) {
-        realPoints = parseFloat(localStorage.getItem("realPoints"));
-        incrementer = parseFloat(localStorage.getItem("incrementer"));
-        for(i = 1; i < 9; i++) {
-            items[i] = JSON.parse(localStorage.getItem(i));
-        }
+    temp = localStorage.getItem("realPoints");
+    if (temp != null) {
+        realPoints = parseFloat(temp);
     }
+    temp = localStorage.getItem("incrementer");
+    if (temp != null) {
+        incrementer = parseFloat(temp);
+    }
+    temp = localStorage.getItem("amountOfItems");
+    if (temp != null) {
+        amountOfItems = parseInt(temp);
+    }
+    for(i = 1; i < 9; i++) {
+        temp = localStorage.getItem(i);
+        if (temp != null) {
+           items[i] = JSON.parse(temp); 
+        }
+   }
 }
 
 function resetGame() {
@@ -121,12 +164,17 @@ function resetGame() {
     updateShowAverage();
     updateShowAllItemsQuantity();
     updateShowAllItemsCost();
+    updateShowAmountOfItems();
+    updateShowAllItemsExp();
     lockItems();
 }
 
 function onStart() {
     initVars();
+    initExp();
     loadGame();
+    updateShowAllItemsExp();
+    updateShowAmountOfItems();
     updateShowAllItemsQuantity();
     updateShowAllItemsCost();
     updateShowPoints();

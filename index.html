@@ -11,92 +11,144 @@
     </head>
     
     <body>
-        
-        <div id="left-side">
-            <ul>
-                <li>
-                    <div id="showPoints" class="text"></div>
-                </li>
-                <li>
-                    <div id="showAverage" class="text"></div>
-                </li>
-                <li>
-                    <button class="save">Save Game</button>
-                </li>
-                <li>
-                    <button class="reset">New Game</button>
-                </li>
-            </ul>
-        </div>
-        
-        <div id="middle-side">
-            <button class="clicker">
-                <div class="itemName">Processor</div>
-            </button>
-        </div>
-        
-        <div id="right-side">
-            <div class="text">Store</div>
-            <ul>
-                <li>
-                    <button class="buy" data-item="1" disabled>
-                        <div class="itemName">ITEM 1</div>
-                        <div id="costOfItem1">koszt 15</div>
+        <header>
+            <button class="save">Save Game</button>
+            <button class="reset">New Game</button>
+        </header>
+        <div id="content">
+            <div id="left-side">
+                <div class="text">Write one line of code in:</div>
+                <ul>
+                    <li>
+                        <button class="buy" data-item="1" disabled>
+                            <div class="itemName">HTML/CSS</div>
+                            <div id="costOfItem1"></div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="buy" data-item="2" disabled>
+                            <div class="itemName">Javascript</div>
+                            <div id="costOfItem2"></div>
+                        </button>     
+                    </li>
+                    <li>
+                        <button class="buy" data-item="3" disabled>
+                            <div class="itemName">Python</div>
+                            <div id="costOfItem3"></div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="buy" data-item="4" disabled>
+                            <div class="itemName">Java</div>
+                            <div id="costOfItem4"></div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="buy" data-item="5" disabled>
+                            <div class="itemName">C#</div>
+                            <div id="costOfItem5"></div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="buy" data-item="6" disabled>
+                            <div class="itemName">C/C++</div>
+                            <div id="costOfItem6"></div>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="buy" data-item="7" disabled>
+                            <div class="itemName">Haskell</div>
+                            <div id="costOfItem7"></div>
+                        </button> 
+                    </li>
+                    <li>
+                        <button class="buy" data-item="8" disabled>
+                            <div class="itemName">Assembler</div>
+                            <div id="costOfItem8"></div>
+                        </button> 
+                    </li>
+                </ul>
+                </div>
+            </div>
+            
+            <div id="middle-side">            
+                <ul>
+                    <li>
+                        <img class="clicker" src="files/images/stack.png" alt="Stack" height="128" width="128">
+                    </li>
+                    <li>
+                        <div id="showPoints" class="text"></div>
+                    </li>
+                    <li>
+                        <div id="showAverage" class="text"></div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="right-side">
+                <ul>
+                    <li>
+                        <div id="showAmountOfItems"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">HTML/CSS</div>
                         <div id="showItem1"></div>
-                    </button>
-                </li>
-                <li>
-                    <button class="buy" data-item="2" disabled>
-                        <div class="itemName">ITEM 2</div>
-                        <div id="costOfItem2">koszt 100</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp1"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">Javascript</div>
                         <div id="showItem2"></div>
-                    </button>     
-                </li>
-                <li>
-                    <button class="buy" data-item="3" disabled>
-                        <div class="itemName">ITEM 3</div>
-                        <div id="costOfItem3">koszt 500</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp2"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">Python</div>
                         <div id="showItem3"></div>
-                    </button>
-                    
-                </li>
-                <li>
-                    <button class="buy" data-item="4" disabled>
-                        <div class="itemName">ITEM 4</div>
-                        <div id="costOfItem4">koszt 3000</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp3"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">Java</div>
                         <div id="showItem4"></div>
-                    </button>
-                </li>
-                <li>
-                    <button class="buy" data-item="5" disabled>
-                        <div class="itemName">ITEM 5</div>
-                        <div id="costOfItem5">koszt 10000</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp4"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">C#</div>
                         <div id="showItem5"></div>
-                    </button>
-                </li>
-                <li>
-                    <button class="buy" data-item="6" disabled>
-                        <div class="itemName">ITEM 6</div>
-                        <div id="costOfItem6">koszt 40000</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp5"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">C/C++</div>
                         <div id="showItem6"></div>
-                    </button>
-                </li>
-                <li>
-                    <button class="buy" data-item="7" disabled>
-                        <div class="itemName">ITEM 7</div>
-                        <div id="costOfItem7">koszt 200000</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp6"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">Haskell</div>
                         <div id="showItem7"></div>
-                    </button> 
-                </li>
-                <li>
-                    <button class="buy" data-item="8" disabled>
-                        <div class="itemName">ITEM 8</div>
-                        <div id="costOfItem8">koszt 1667000</div>
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp7"></div>
+                        </br>
+                    </li>
+                    <li>
+                        <div class="itemName">Assembler</div>
                         <div id="showItem8"></div>
-                    </button> 
-                </li>
-            </ul>
-
+                        <div class="exp"></div>
+                        <div class="itemsExp" id="exp8"></div>
+                        </br>
+                    </li>
+                </ul>
+            </div>
         </div>
         <footer>
             <ul>
@@ -104,7 +156,7 @@
                     <div class="text">IT-Clicker v0.01</div>
                 </li>
                 <li>
-                    <div class="text">authors: Wiktor Jeziorski, Michał Wrubel</div>
+                    <div class="text">author: Wiktor Jeziorski</div>
                 </li>
             </ul>
         </footer>

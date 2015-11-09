@@ -4,30 +4,21 @@ body {
 
 #left-side {
     float: left;
-    width: 33%;
+    width: 35%;
 }
 
 #middle-side {
     float: left;
-    width: 34%;
+    width: 30%;
 }
 
 #right-side {
     float: left;
-    width: 33%;
+    width: 35%;
 }
 
 button, .clicker {
     cursor: pointer;
-}
-
-.toggle-down {
-  transform: rotate(0deg);
-}
-
-
-.toggle-up {
-  transform: rotate(180deg);
 }
 
 ul {
@@ -58,6 +49,14 @@ ul {
 
 .buy:disabled {
     background-color: #0099CC;
+}
+
+.toggle-down {
+  transform: rotate(0deg);
+}
+
+.toggle-up {
+  transform: rotate(180deg);
 }
 */
 

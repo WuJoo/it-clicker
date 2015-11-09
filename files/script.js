@@ -2,10 +2,15 @@ var realPoints;
 var incrementer;
 var items = {};
 var amountOfItems;
+var isLarge;
+
+/*
 var upClass = 'toggle-up';
 var downClass = 'toggle-down';
+*/
 
 function initVars() {
+    isLarge=false;
     realPoints=0.0;
     incrementer=0.0;
     amountOfItems=0;
@@ -82,7 +87,7 @@ function runPointsCounter() {
         }, 
     1000);
 }
-
+/*
 function toggle() {
     var clicker = document.querySelector('.clicker');
     if(~clicker.className.indexOf(downClass)) {
@@ -92,10 +97,10 @@ function toggle() {
         clicker.className = clicker.className.replace(upClass, downClass);
     }
 }
-
+*/
 function onClick() {
     realPoints=realPoints+1.0;
-    toggle();
+    //toggle();
     updateShowPoints();
     lockItems();
 }
@@ -197,7 +202,18 @@ function onStart() {
     automaticSave();
     
     $('.clicker').click(function() {
+        if(isLarge) {
+            $(this).width(128);
+            $(this).height(128);
+            isLarge = false;
+        }
+        else {
+            $(this).width(136);
+            $(this).height(136);
+            isLarge = true;
+        }
         onClick();
+        
     });
     
     $('.buy').click(function() {
@@ -212,6 +228,7 @@ function onStart() {
     $('.reset').click(function() {
         resetGame();
     });
+    
 }
 
 

@@ -2,7 +2,7 @@ var realPoints;
 var incrementer;
 var items = {};
 var amountOfItems;
-var isLarge;
+//var isLarge;
 
 /*
 var upClass = 'toggle-up';
@@ -202,6 +202,7 @@ function onStart() {
     automaticSave();
     
     $('.clicker').click(function() {
+        /*
         if(isLarge) {
             $(this).width(128);
             $(this).height(128);
@@ -212,6 +213,7 @@ function onStart() {
             $(this).height(136);
             isLarge = true;
         }
+        */
         onClick();
         
     });

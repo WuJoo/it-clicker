@@ -2,9 +2,9 @@ wersja podstawowa:
 1. ogólnie pojęty css:
     -layout
     -ładne buttony po lewej
-    -ramki po prawej
     -odpowiednie rozmiary elementów
     -czcionka
+    -paddingi do borderów
 2. dodać animate z jquery do updateShowPoints()
 3. dodanie jakiegoś efektu po kliknięciu na symbol stacka
 

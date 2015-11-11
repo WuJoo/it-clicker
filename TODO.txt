@@ -1,12 +1,11 @@
 wersja podstawowa:
-1. ogólnie pojęty css:
-    -layout
-    -ładne buttony po lewej
-    -odpowiednie rozmiary elementów
-    -czcionka
-    -paddingi do borderów
+1. z cssa do zrobienia:
+    -rozmiary napisów
+    -buttony save i new game, małe i nierzucające się w oczy
+    -ogarnąć położenie stacka i stópkę
+    -ogarnąć położenie obrazków z ikonami języków - tak żeby się nie przyklejały do napisów
+    
 2. dodać animate z jquery do updateShowPoints()
-3. dodanie jakiegoś efektu po kliknięciu na symbol stacka
 
 wersja rozszerzona:
 1. bonusy do kupienia

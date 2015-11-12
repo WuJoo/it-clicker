@@ -2,12 +2,6 @@ var realPoints;
 var incrementer;
 var items = {};
 var amountOfItems;
-//var isLarge;
-
-/*
-var upClass = 'toggle-up';
-var downClass = 'toggle-down';
-*/
 
 function initVars() {
     isLarge=false;
@@ -87,20 +81,9 @@ function runPointsCounter() {
         }, 
     1000);
 }
-/*
-function toggle() {
-    var clicker = document.querySelector('.clicker');
-    if(~clicker.className.indexOf(downClass)) {
-        clicker.className = clicker.className.replace(downClass, upClass);
-    } 
-    else {
-        clicker.className = clicker.className.replace(upClass, downClass);
-    }
-}
-*/
+
 function onClick() {
     realPoints=realPoints+1.0;
-    //toggle();
     updateShowPoints();
     lockItems();
 }
@@ -202,18 +185,6 @@ function onStart() {
     automaticSave();
     
     $('.clicker').click(function() {
-        /*
-        if(isLarge) {
-            $(this).width(128);
-            $(this).height(128);
-            isLarge = false;
-        }
-        else {
-            $(this).width(136);
-            $(this).height(136);
-            isLarge = true;
-        }
-        */
         onClick();
         
     });

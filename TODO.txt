@@ -14,6 +14,7 @@ wersja rozszerzona:
 1. bonusy do kupienia
 2. osiągnięcia do zdobycia
 3. wczytywanie obrazków ajaxem
+4. można wykorzystać to https://jqueryui.com/sortable/#default
 
 do przemyślenia:
 1. pozmieniać wagi itemów

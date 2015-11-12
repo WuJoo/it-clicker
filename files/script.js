@@ -186,7 +186,6 @@ function onStart() {
     
     $('.clicker').click(function() {
         onClick();
-        
     });
     
     $('.buy').click(function() {
@@ -200,8 +199,7 @@ function onStart() {
     
     $('.reset').click(function() {
         resetGame();
-    });
-    
+    }); 
 }
 
 

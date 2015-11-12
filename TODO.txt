@@ -4,11 +4,16 @@ wersja podstawowa:
     -buttony save i new game, małe i nierzucające się w oczy
     -ogarnąć położenie stacka i stópkę
     -ogarnąć położenie obrazków z ikonami języków - tak żeby się nie przyklejały do napisów
-    
 2. dodać animate z jquery do updateShowPoints()
+3. dodać bazę śmiesznych tekstów wyświetlających się 
+   po kupieniu odpowiedniej liczby itemów(po angielsku?)
+4. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku(bo bez tego jest nudno, 
+   a większość gier tego typu to ma :/ )
 
 wersja rozszerzona:
 1. bonusy do kupienia
 2. osiągnięcia do zdobycia
 3. wczytywanie obrazków ajaxem
-4. pozmieniać wagi itemów
+
+do przemyślenia:
+1. pozmieniać wagi itemów

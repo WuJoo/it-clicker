@@ -199,6 +199,10 @@ function onStart() {
     
     $('.reset').click(function() {
         resetGame();
+    });
+    
+    $( "#progressbar" ).progressbar({
+        value: false
     }); 
 }
 

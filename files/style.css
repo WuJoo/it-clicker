@@ -116,3 +116,7 @@ header, footer {
     text-align: right;
 }
 
+#progressbar .ui-progressbar-value {
+    background-color: #ccc;
+}
+

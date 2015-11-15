@@ -1,17 +1,15 @@
 wersja podstawowa:
-1. dodać animate z jquery do updateShowPoints()
-2. dodać bazę śmiesznych tekstów wyświetlających się 
+1. dodać bazę śmiesznych tekstów wyświetlających się 
    po kupieniu odpowiedniej liczby itemów(po angielsku?)
-3. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku(bo bez tego jest nudno, 
+2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku(bo bez tego jest nudno, 
    a większość gier tego typu to ma :/ )
-4. można do buttonów wykorzystać to https://jqueryui.com/sortable/#default
-5. progress bary do buttonów https://jqueryui.com/progressbar/
-6. wywalić te divy z buttonów i ogarnąć to jakoś inaczej, bo walidator się o to czepia
+3. wyśrodkować progressbary
 
 wersja rozszerzona:
 1. bonusy do kupienia
 2. osiągnięcia do zdobycia
 3. wczytywanie obrazków ajaxem
+4. dodać animate z jquery do updateShowPoints()
 
 do przemyślenia:
 1. pozmieniać wagi itemów

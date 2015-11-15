@@ -72,12 +72,30 @@ function updateShowAllItemsCost() {
     }
 }
 
+function progressBar(percent, $element) {
+	var progressBarWidth = percent * $element.width() / 100;
+	$element.find('div').animate({ width: progressBarWidth }, 1).html(percent + "%&nbsp;");
+}
+
+function updateProgressBars() {
+    for(i=1; i < 9; i++) {
+        percent = parseInt(realPoints/items[i].cost * 100);
+        if(percent > 100) {
+            progressBar(100, $('#progressBar'+i));
+        }
+        else {
+            progressBar(percent, $('#progressBar'+i));
+        }
+    }
+}
+
 function runPointsCounter() {
     setInterval(
         function() {
             realPoints = realPoints + incrementer;
             updateShowPoints();
             lockItems();
+            updateProgressBars();
         }, 
     1000);
 }
@@ -86,6 +104,7 @@ function onClick() {
     realPoints=realPoints+1.0;
     updateShowPoints();
     lockItems();
+    updateProgressBars();
 }
 
 function buyItem(i) {
@@ -103,6 +122,7 @@ function buyItem(i) {
         updateShowItemCost(i);
         updateShowPoints();
         lockItems();
+        updateProgressBars();
     }
 }
 
@@ -181,6 +201,7 @@ function onStart() {
     updateShowPoints();
     updateShowAverage();
     lockItems();
+    updateProgressBars();
     runPointsCounter();
     automaticSave();
     
@@ -201,7 +222,6 @@ function onStart() {
         resetGame();
     });
 }
-
 
 $(document).ready(function() {
     onStart();

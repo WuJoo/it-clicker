@@ -115,7 +115,7 @@ function buyItem(i) {
         item.quantity=item.quantity+1;
         amountOfItems=amountOfItems+1;
         item.cost=Math.round(1.12*item.cost);
-        updateShowItemExp(i)
+        updateShowItemExp(i);
         updateShowAmountOfItems();
         updateShowAverage();
         updateShowItemQuantity(i);
@@ -159,20 +159,20 @@ function automaticSave() {
 
 function loadGame() {
     temp = localStorage.getItem("realPoints");
-    if (temp != null) {
+    if (temp !== null) {
         realPoints = parseFloat(temp);
     }
     temp = localStorage.getItem("incrementer");
-    if (temp != null) {
+    if (temp !== null) {
         incrementer = parseFloat(temp);
     }
     temp = localStorage.getItem("amountOfItems");
-    if (temp != null) {
+    if (temp !== null) {
         amountOfItems = parseInt(temp);
     }
     for(i = 1; i < 9; i++) {
         temp = localStorage.getItem(i);
-        if (temp != null) {
+        if (temp !== null) {
            items[i] = JSON.parse(temp); 
         }
    }

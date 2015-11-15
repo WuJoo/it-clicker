@@ -3,7 +3,6 @@ wersja podstawowa:
    po kupieniu odpowiedniej liczby itemów(po angielsku?)
 2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku(bo bez tego jest nudno, 
    a większość gier tego typu to ma :/ )
-3. wyśrodkować progressbary
 
 wersja rozszerzona:
 1. bonusy do kupienia

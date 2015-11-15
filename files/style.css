@@ -11,6 +11,10 @@ body {
     font-family: 'Trebuchet MS', Helvetica, sans-serif; 
 }
 
+span {
+    display:block;
+}
+
 .left-side {
     float: left;
     width: 25%;
@@ -114,9 +118,5 @@ button:hover, .frame:hover {
 
 header, footer {
     text-align: right;
-}
-
-#progressbar .ui-progressbar-value {
-    background-color: #ccc;
 }
 

@@ -1,228 +1,233 @@
-var realPoints;
-var incrementer;
-var items = {};
-var amountOfItems;
+function Game() {
+    var self = this;
+    
+    this.realPoints = 0.0;
+    this.incrementer = 0.0;
+    this.items = {};
+    this.amountOfItems = 0;
+    
+    this.initVars = function() {
+        this.realPoints = 0.0;
+        this.incrementer = 0.0;
+        this.amountOfItems = 0;
+        //speedUp = x => x*0.1 points per second
+        this.items[1] = {cost: 15, quantity: 0, speedUp: 1};
+        this.items[2] = {cost: 100, quantity: 0, speedUp: 5};
+        this.items[3] = {cost: 500, quantity: 0, speedUp: 40};
+        this.items[4] = {cost: 3000, quantity: 0, speedUp: 100};
+        this.items[5] = {cost: 10000, quantity: 0, speedUp: 400};
+        this.items[6] = {cost: 40000, quantity: 0, speedUp: 1000};
+        this.items[7] = {cost: 200000, quantity: 0, speedUp: 4000};
+        this.items[8] = {cost: 1667000, quantity: 0, speedUp: 66660};
+    };
 
-function initVars() {
-    isLarge=false;
-    realPoints=0.0;
-    incrementer=0.0;
-    amountOfItems=0;
-    //speedUp = x => x*0.1 points per second
-    items[1] = {cost: 15, quantity: 0, speedUp: 1};
-    items[2] = {cost: 100, quantity: 0, speedUp: 5};
-    items[3] = {cost: 500, quantity: 0, speedUp: 40};
-    items[4] = {cost: 3000, quantity: 0, speedUp: 100};
-    items[5] = {cost: 10000, quantity: 0, speedUp: 400};
-    items[6] = {cost: 40000, quantity: 0, speedUp: 1000};
-    items[7] = {cost: 200000, quantity: 0, speedUp: 4000};
-    items[8] = {cost: 1667000, quantity: 0, speedUp: 66660};
-}
-
-function initExp() {
-    var exps = document.getElementsByClassName("exp");
-    var i;
-    for (i = 0; i < exps.length; i++) {
-        var x = items[i+1].speedUp/10;
-        exps[i].innerHTML = "each written line gives you " + x.toFixed(1) + " exp each second";
-    }
-}
-
-function updateShowItemExp(i) {
-    var temp = (items[i].speedUp/10) * items[i].quantity;
-    $("#exp"+i).html(""+items[i].quantity+" lines gives you "+temp.toFixed(1)+" exp");
-}
-
-function updateShowAllItemsExp() {
-    for(i = 1; i < 9; i++) {
-        var temp = (items[i].speedUp/10) * items[i].quantity;
-        $("#exp"+i).html(""+items[i].quantity+" lines gives you "+temp.toFixed(1)+" exp");
-    }
-}
-
-function updateShowAmountOfItems() {
-    $("#showAmountOfItems").html("You wrote " + amountOfItems +" lines of code");
-}
-
-function updateShowPoints() {
-    $("#showPoints").html("You have " + parseInt(realPoints) +" exp");
-}
-
-function updateShowAverage() {
-    $("#showAverage").html("every second you get " + incrementer.toFixed(1) +" exp");
-}
-
-function updateShowItemQuantity(i) {
-    $("#showItem"+i).html("Lines of code " + items[i].quantity);
-}
-
-function updateShowAllItemsQuantity() {
-    for(i = 1; i < 9; i++) {
-        $("#showItem"+i).html("Lines of code " + items[i].quantity);
-    }
-}
-
-function updateShowItemCost(i) {
-    $("#costOfItem"+i).html("Cost "+items[i].cost+" exp");
-}
-
-function updateShowAllItemsCost() {
-    for(i = 1; i < 9; i++) {
-        $("#costOfItem"+i).html("Cost "+items[i].cost+" exp");
-    }
-}
-
-function progressBar(percent, $element) {
-	var progressBarWidth = percent * $element.width() / 100;
-	$element.find('div').animate({ width: progressBarWidth }, 1).html(percent + "%&nbsp;");
-}
-
-function updateProgressBars() {
-    for(i=1; i < 9; i++) {
-        percent = parseInt(realPoints/items[i].cost * 100);
-        if(percent > 100) {
-            progressBar(100, $('#progressBar'+i));
+    this.initExp = function() {
+        var exps = document.getElementsByClassName("exp");
+        for (var i = 0; i < exps.length; i++) {
+            var x = this.items[i+1].speedUp/10;
+            exps[i].innerHTML = "each written line gives you " + x.toFixed(1) + " exp each second";
         }
-        else {
-            progressBar(percent, $('#progressBar'+i));
+    };
+    
+    
+    this.updateShowItemExp = function(i) {
+        var temp = (this.items[i].speedUp/10) * this.items[i].quantity;
+        $("#exp" + i).html(this.items[i].quantity + " lines gives you " + temp.toFixed(1) + " exp");
+    }
+    
+    this.updateShowAllItemsExp = function() {
+        for(var i = 1; i < 9; i++) {
+            var temp = (this.items[i].speedUp/10) * this.items[i].quantity;
+            $("#exp" + i).html(this.items[i].quantity + " lines gives you " + temp.toFixed(1) + " exp");
         }
     }
-}
 
-function runPointsCounter() {
-    setInterval(
-        function() {
-            realPoints = realPoints + incrementer;
-            updateShowPoints();
-            lockItems();
-            updateProgressBars();
-        }, 
-    1000);
-}
-
-function onClick() {
-    realPoints=realPoints+1.0;
-    updateShowPoints();
-    lockItems();
-    updateProgressBars();
-}
-
-function buyItem(i) {
-    item = items[i];
-    if (item.cost <= parseInt(realPoints)) {
-        realPoints=realPoints-item.cost;
-        incrementer=incrementer+(item.speedUp*0.1);
-        item.quantity=item.quantity+1;
-        amountOfItems=amountOfItems+1;
-        item.cost=Math.round(1.12*item.cost);
-        updateShowItemExp(i);
-        updateShowAmountOfItems();
-        updateShowAverage();
-        updateShowItemQuantity(i);
-        updateShowItemCost(i);
-        updateShowPoints();
-        lockItems();
-        updateProgressBars();
+    this.updateShowAmountOfItems = function() {
+        $("#showAmountOfItems").html("You wrote " + this.amountOfItems +" lines of code");
     }
-}
 
-function lockItems() {
-    var lockedItems = document.getElementsByClassName("buy");
-    for(i = 0; i < lockedItems.length; i++) {
-        if(items[i+1].cost <= parseInt(realPoints)) {
-            lockedItems[i].disabled = false;
-        }
-        else {
-            lockedItems[i].disabled = true;
+    this.updateShowPoints = function() {
+        $("#showPoints").html("You have " + parseInt(this.realPoints) +" exp");
+    }
+
+    this.updateShowAverage = function() {
+        $("#showAverage").html("every second you get " + this.incrementer.toFixed(1) +" exp");
+    }
+
+    this.updateShowItemQuantity = function(i) {
+        $("#showItem" + i).html("Lines of code " + this.items[i].quantity);
+    }
+
+    this.updateShowAllItemsQuantity = function() {
+        for(var i = 1; i < 9; i++) {
+            $("#showItem" + i).html("Lines of code " + this.items[i].quantity);
         }
     }
-}
 
-function saveGame() {
-    localStorage.setItem("realPoints", realPoints);
-    localStorage.setItem("incrementer", incrementer);
-    localStorage.setItem("amountOfItems", amountOfItems);
-    for(i = 1; i < 9; i++) {
-        localStorage.setItem(i, JSON.stringify(items[i]));
+    this.updateShowItemCost = function(i) {
+        $("#costOfItem" + i).html("Cost " + this.items[i].cost + " exp");
     }
-}
+
+    this.updateShowAllItemsCost = function() {
+        for(var i = 1; i < 9; i++) {
+            $("#costOfItem" + i).html("Cost " + this.items[i].cost + " exp");
+        }
+    }
+
+    this.progressBar = function(percent, $element) {
+	    var progressBarWidth = percent * $element.width() / 100;
+	    $element.find('div').animate({ width: progressBarWidth }, 1).html(percent + "%&nbsp;");
+    }
+
+    this.updateProgressBars = function() {
+        for(var i = 1; i < 9; i++) {
+            percent = parseInt(this.realPoints / this.items[i].cost * 100);
+            if(percent > 100) {
+                this.progressBar(100, $('#progressBar' + i));
+            }
+            else {
+                this.progressBar(percent, $('#progressBar' + i));
+            }
+        }
+    }
+
+    this.runPointsCounter = function() {
+        setInterval(
+            function() {
+                self.realPoints = self.realPoints + self.incrementer;
+                self.updateShowPoints();
+                self.lockItems();
+                self.updateProgressBars();
+            }, 
+        1000);
+    }
+
+    this.onClick = function() {
+        this.realPoints = this.realPoints + 1.0;
+        this.updateShowPoints();
+        this.lockItems();
+        this.updateProgressBars();
+    }
+
+    this.buyItem = function(i) {
+        item = this.items[i];
+        if (item.cost <= parseInt(this.realPoints)) {
+            this.realPoints = this.realPoints - item.cost;
+            this.incrementer = this.incrementer + (item.speedUp * 0.1);
+            item.quantity = item.quantity + 1;
+            this.amountOfItems = this.amountOfItems + 1;
+            item.cost = Math.round(1.12 * item.cost);
+            this.updateShowItemExp(i);
+            this.updateShowAmountOfItems();
+            this.updateShowAverage();
+            this.updateShowItemQuantity(i);
+            this.updateShowItemCost(i);
+            this.updateShowPoints();
+            this.lockItems();
+            this.updateProgressBars();
+        }
+    }
+
+    this.lockItems = function() {
+        var lockedItems = document.getElementsByClassName("buy");
+        for(var i = 0; i < lockedItems.length; i++) {
+            if(this.items[i+1].cost <= parseInt(this.realPoints)) {
+                lockedItems[i].disabled = false;
+            }
+            else {
+                lockedItems[i].disabled = true;
+            }
+        }
+    }
+
+    this.saveGame = function() {
+        localStorage.setItem("realPoints", this.realPoints);
+        localStorage.setItem("incrementer", this.incrementer);
+        localStorage.setItem("amountOfItems", this.amountOfItems);
+        for(var i = 1; i < 9; i++) {
+            localStorage.setItem(i, JSON.stringify(this.items[i]));
+        }
+    }
 
 
-//automatyczne zapisanie stanu co 30 sek
-function automaticSave() {
-    setInterval(
-        function() {
-            saveGame();
-        }, 
-    30000);
-}
+    //automatyczne zapisanie stanu co 30 sek
+    this.automaticSave = function() {
+        setInterval(
+            function() {
+                self.saveGame();
+            }, 
+        30000);
+    }
 
-function loadGame() {
-    temp = localStorage.getItem("realPoints");
-    if (temp !== null) {
-        realPoints = parseFloat(temp);
-    }
-    temp = localStorage.getItem("incrementer");
-    if (temp !== null) {
-        incrementer = parseFloat(temp);
-    }
-    temp = localStorage.getItem("amountOfItems");
-    if (temp !== null) {
-        amountOfItems = parseInt(temp);
-    }
-    for(i = 1; i < 9; i++) {
-        temp = localStorage.getItem(i);
+    this.loadGame = function() {
+        temp = localStorage.getItem("realPoints");
         if (temp !== null) {
-           items[i] = JSON.parse(temp); 
+            this.realPoints = parseFloat(temp);
         }
-   }
-}
+        temp = localStorage.getItem("incrementer");
+        if (temp !== null) {
+            this.incrementer = parseFloat(temp);
+        }
+        temp = localStorage.getItem("amountOfItems");
+        if (temp !== null) {
+            this.amountOfItems = parseInt(temp);
+        }
+        for(i = 1; i < 9; i++) {
+            temp = localStorage.getItem(i);
+            if (temp !== null) {
+               this.items[i] = JSON.parse(temp); 
+            }
+       }
+    }
 
-function resetGame() {
-    localStorage.clear();
-    initVars();
-    updateShowPoints();
-    updateShowAverage();
-    updateShowAllItemsQuantity();
-    updateShowAllItemsCost();
-    updateShowAmountOfItems();
-    updateShowAllItemsExp();
-    lockItems();
-}
+    this.resetGame = function() {
+        localStorage.clear();
+        this.initVars();
+        this.updateShowPoints();
+        this.updateShowAverage();
+        this.updateShowAllItemsQuantity();
+        this.updateShowAllItemsCost();
+        this.updateShowAmountOfItems();
+        this.updateShowAllItemsExp();
+        this.lockItems();
+    }
 
-function onStart() {
-    initVars();
-    initExp();
-    loadGame();
-    updateShowAllItemsExp();
-    updateShowAmountOfItems();
-    updateShowAllItemsQuantity();
-    updateShowAllItemsCost();
-    updateShowPoints();
-    updateShowAverage();
-    lockItems();
-    updateProgressBars();
-    runPointsCounter();
-    automaticSave();
+    this.onStart = function() {
+        this.initVars();
+        this.initExp();
+        this.loadGame();
+        this.updateShowAllItemsExp();
+        this.updateShowAmountOfItems();
+        this.updateShowAllItemsQuantity();
+        this.updateShowAllItemsCost();
+        this.updateShowPoints();
+        this.updateShowAverage();
+        this.lockItems();
+        this.updateProgressBars();
+        this.runPointsCounter();
+        this.automaticSave();
+        
+        $('.clicker').click(function() {
+            self.onClick();
+        });
+        
+        $('.buy').click(function() {
+            var item = $(this).attr('data-item');
+            self.buyItem(item);
+        });
+        
+        $('.save').click(function() {
+            self.saveGame();
+        });
+        
+        $('.reset').click(function() {
+            self.resetGame();
+        });
+    }
     
-    $('.clicker').click(function() {
-        onClick();
-    });
-    
-    $('.buy').click(function() {
-        var item = $(this).attr('data-item');
-        buyItem(item);
-    });
-    
-    $('.save').click(function() {
-        saveGame();
-    });
-    
-    $('.reset').click(function() {
-        resetGame();
-    });
 }
 
 $(document).ready(function() {
-    onStart();
+    var game = new Game();
+    game.onStart();
 });

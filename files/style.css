@@ -162,3 +162,7 @@ header, footer {
     background-image:-webkit-linear-gradient(-90deg,rgb(58,64,80) 0%,rgb(58,64,80) 47%,rgb(46,50,62) 48%,rgb(46,50,62) 100%);
     background-image:linear-gradient(-180deg,rgb(58,64,80) 0%,rgb(58,64,80) 47%,rgb(46,50,62) 48%,rgb(46,50,62) 100%);
 */
+
+footer {
+    clear: right;
+}

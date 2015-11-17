@@ -73,6 +73,28 @@ function Game() {
         }
     };
 
+    this.allUpdatesForAll = function() {
+        this.updateShowPoints();
+        this.updateShowAverage();
+        this.updateShowAllItemsQuantity();
+        this.updateShowAllItemsCost();
+        this.updateShowAmountOfItems();
+        this.updateShowAllItemsExp();
+        this.updateProgressBars();
+        this.updateLockItems();
+    };
+
+    this.allUpdatesForOne = function(i) {
+        this.updateShowItemExp(i);
+        this.updateShowItemQuantity(i);
+        this.updateShowItemCost(i);
+        this.updateShowAmountOfItems();
+        this.updateShowAverage();
+        this.updateShowPoints();
+        this.updateLockItems();
+        this.updateProgressBars();
+    };
+
     this.progressBar = function(percent, $element) {
         var progressBarWidth = percent * $element.width() / 100;
         $element.find('div').animate({ width: progressBarWidth }, 1).html(percent + "%&nbsp;");
@@ -82,11 +104,9 @@ function Game() {
         for(var i = 1; i < 9; i++) {
             var percent = parseInt(this.realPoints / this.items[i].cost * 100);
             if(percent > 100) {
-                this.progressBar(100, $('#progressBar' + i));
+                percent = 100;
             }
-            else {
-                this.progressBar(percent, $('#progressBar' + i));
-            }
+            this.progressBar(percent, $('#progressBar' + i));
         }
     };
 
@@ -95,7 +115,7 @@ function Game() {
             function() {
                 self.realPoints = self.realPoints + self.incrementer;
                 self.updateShowPoints();
-                self.lockItems();
+                self.updateLockItems();
                 self.updateProgressBars();
             },
         1000);
@@ -104,7 +124,7 @@ function Game() {
     this.onClick = function() {
         this.realPoints = this.realPoints + 1.0;
         this.updateShowPoints();
-        this.lockItems();
+        this.updateLockItems();
         this.updateProgressBars();
     };
 
@@ -116,18 +136,11 @@ function Game() {
             item.quantity = item.quantity + 1;
             this.amountOfItems = this.amountOfItems + 1;
             item.cost = Math.round(1.12 * item.cost);
-            this.updateShowItemExp(i);
-            this.updateShowAmountOfItems();
-            this.updateShowAverage();
-            this.updateShowItemQuantity(i);
-            this.updateShowItemCost(i);
-            this.updateShowPoints();
-            this.lockItems();
-            this.updateProgressBars();
+            this.allUpdatesForOne(i);
         }
     };
 
-    this.lockItems = function() {
+    this.updateLockItems = function() {
         var lockedItems = document.getElementsByClassName("buy");
         for(var i = 0; i < lockedItems.length; i++) {
             if(this.items[i+1].cost <= parseInt(this.realPoints)) {
@@ -147,7 +160,6 @@ function Game() {
             localStorage.setItem(i, JSON.stringify(this.items[i]));
         }
     };
-
 
     //automatyczne zapisanie stanu co 30 sek
     this.automaticSave = function() {
@@ -182,27 +194,14 @@ function Game() {
     this.resetGame = function() {
         localStorage.clear();
         this.initVars();
-        this.updateShowPoints();
-        this.updateShowAverage();
-        this.updateShowAllItemsQuantity();
-        this.updateShowAllItemsCost();
-        this.updateShowAmountOfItems();
-        this.updateShowAllItemsExp();
-        this.lockItems();
+        this.allUpdatesForAll();
     };
 
     this.onStart = function() {
         this.initVars();
         this.initExp();
         this.loadGame();
-        this.updateShowAllItemsExp();
-        this.updateShowAmountOfItems();
-        this.updateShowAllItemsQuantity();
-        this.updateShowAllItemsCost();
-        this.updateShowPoints();
-        this.updateShowAverage();
-        this.lockItems();
-        this.updateProgressBars();
+        this.allUpdatesForAll();
         this.runPointsCounter();
         this.automaticSave();
 
@@ -223,7 +222,7 @@ function Game() {
             self.resetGame();
         });
     };
-    
+
 }
 
 $(document).ready(function() {

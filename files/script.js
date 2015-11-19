@@ -126,6 +126,11 @@ function Game() {
         this.updateShowPoints();
         this.updateLockItems();
         this.updateProgressBars();
+	var pointsy = $('<div>+1exp;</div>');
+	$(showAverage).append(pointsy);
+	pointsy.animate({top: -200, opacity:0}, 2000, 'swing', function(){
+	  $(this).remove();
+	  });
     };
 
     this.buyItem = function(i) {

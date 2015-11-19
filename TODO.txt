@@ -4,7 +4,6 @@ wersja podstawowa:
 2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku(bo bez tego jest nudno, 
    a większość gier tego typu to ma :/ )
 3. ogarnąć klasy cssów
-4. ogarnąć cleancode w jsie(te wszystkie updaty)
 
 wersja rozszerzona:
 1. bonusy do kupienia

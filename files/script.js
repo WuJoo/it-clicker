@@ -120,17 +120,21 @@ function Game() {
             },
         1000);
     };
+    
+    this.onClickEfect = function () {
+        var pointsy = $('<div>+1exp;</div>');
+        $(showAverage).append(pointsy);
+        pointsy.animate({top: -200, opacity:0}, 2000, 'swing', function(){
+            $(this).remove();
+        });
+    }
 
     this.onClick = function() {
         this.realPoints = this.realPoints + 1.0;
         this.updateShowPoints();
+        this.onClickEfect();
         this.updateLockItems();
         this.updateProgressBars();
-	var pointsy = $('<div>+1exp;</div>');
-	$(showAverage).append(pointsy);
-	pointsy.animate({top: -200, opacity:0}, 2000, 'swing', function(){
-	  $(this).remove();
-	  });
     };
 
     this.buyItem = function(i) {

@@ -1,15 +1,11 @@
 wersja podstawowa:
 1. dodać bazę śmiesznych tekstów wyświetlających się 
-   po kupieniu odpowiedniej liczby itemów(po angielsku?)
-2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku(bo bez tego jest nudno, 
-   a większość gier tego typu to ma :/ )
+   po kupieniu odpowiedniej liczby itemów
+2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku
 3. ogarnąć klasy cssów
 
 wersja rozszerzona:
-1. bonusy do kupienia
-2. osiągnięcia do zdobycia
-3. wczytywanie obrazków ajaxem
-4. dodać animate z jquery do updateShowPoints()
+1. dodać animate z jquery do updateShowPoints()
 
 do przemyślenia:
 1. pozmieniać wagi itemów

@@ -3,6 +3,7 @@ wersja podstawowa:
    po kupieniu odpowiedniej liczby itemów
 2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku
 3. ogarnąć klasy cssów
+4. ogarnąć żeby działało pod IE
 
 wersja rozszerzona:
 1. dodać animate z jquery do updateShowPoints()

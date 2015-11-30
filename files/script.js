@@ -72,6 +72,50 @@ function Game() {
             $("#costOfItem" + i).html("Cost " + this.items[i].cost + " exp");
         }
     };
+    
+    this.updateQuote = function() {
+        //TODO
+        var text;
+        if(this.amountOfItems > 999) {
+            text = "napisales tysiac linijek...";
+        }
+        else if(this.amountOfItems > 99) {
+            text = "napisales sto linijek...";
+        }
+        /*
+        else if(this.amountOfItems > progpunktowy) {
+            text = "jakis tekst";
+        }
+        else if() {
+        
+        }
+        else if() {
+        
+        }
+        else if() {
+        
+        }
+        else if() {
+        
+        }
+        else if() {
+        
+        }
+        else if() {
+        
+        }
+        else if() {
+        
+        }
+        */
+        else if(this.amountOfItems > 0) {
+            text = "napisales pierwszo linijke...";
+        }
+        else {
+            text = "Click on StackOverflow logo to get exp!";
+        }
+        $("#quote").html(text);  
+    }
 
     this.allUpdatesForAll = function() {
         this.updateShowPoints();
@@ -82,6 +126,7 @@ function Game() {
         this.updateShowAllItemsExp();
         this.updateProgressBars();
         this.updateLockItems();
+        this.updateQuote();
     };
 
     this.allUpdatesForOne = function(i) {
@@ -93,6 +138,7 @@ function Game() {
         this.updateShowPoints();
         this.updateLockItems();
         this.updateProgressBars();
+        this.updateQuote();
     };
 
     this.progressBar = function(percent, $element) {
@@ -122,7 +168,7 @@ function Game() {
     };
     
     this.onClickEfect = function () {
-        var pointsy = $('<div>+1exp;</div>');
+        var pointsy = $('<div>+1exp</div>');
         $(showAverage).append(pointsy);
         pointsy.animate({top: -200, opacity:0}, 2000, 'swing', function(){
             $(this).remove();

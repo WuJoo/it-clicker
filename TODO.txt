@@ -1,12 +1,3 @@
-wersja podstawowa:
-1. dodać bazę śmiesznych tekstów wyświetlających się 
-   po kupieniu odpowiedniej liczby itemów
-2. jakiś efekt w stylu wyskakujących punkcików po kliku na stacku
+1. dodać bazę tekstów
+2. ogarnąć żeby działało pod IE
 3. ogarnąć klasy cssów
-4. ogarnąć żeby działało pod IE
-
-wersja rozszerzona:
-1. dodać animate z jquery do updateShowPoints()
-
-do przemyślenia:
-1. pozmieniać wagi itemów

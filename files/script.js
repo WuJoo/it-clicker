@@ -167,7 +167,8 @@ function Game() {
     };
     
     this.onClickEfect = function () {
-        var pointsy = $('<div>+1exp</div>');
+        var expo = parseInt(this.amountOfItems + 1.0);
+        var pointsy = $('<div>+' + expo + 'exp</div>');
         $(showAverage).append(pointsy);
         pointsy.animate({top: -200, opacity:0}, 2000, 'swing', function(){
             $(this).remove();
@@ -175,7 +176,7 @@ function Game() {
     }
 
     this.onClick = function() {
-        this.realPoints = this.realPoints + 1.0;
+        this.realPoints = this.realPoints + this.amountOfItems + 1.0;
         this.updateShowPoints();
         this.onClickEfect();
         this.updateLockItems();

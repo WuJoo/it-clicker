@@ -77,42 +77,43 @@ function Game() {
         //TODO
         var text;
         if(this.amountOfItems > 999) {
-            text = "napisales tysiac linijek...";
+            text = "One of your Artificial Intelligence systems reached Technological Singularity. This is the end of the world as we know it.";
         }
-        else if(this.amountOfItems > 99) {
-            text = "napisales sto linijek...";
+        else if(this.amountOfItems > 49) {
+            text = "People across the Globe want you to work for their companies. ";
         }
-        /*
-        else if(this.amountOfItems > progpunktowy) {
-            text = "jakis tekst";
-        }
-        else if() {
         
+        else if(this.amountOfItems > 39) {
+            text = "You've earned your first Golden Badge on Stack Overflow!";
         }
-        else if() {
+        else if(this.amountOfItems > 34) {
+        text = "You no longer look for job offers. They look for you.";
+        }
+        else if(this.amountOfItems > 29) {
+        text = "Your OpenSource apps are used across the country.";
+        }
+        else if(this.amountOfItems > 24) {
+        text = "You've earned your first badge on StackOverflow!";
+        }
+        else if(this.amountOfItems > 19) {
+        text = "Student associations and schools across the city ask you to design their websites!";
+        }
+        else if(this.amountOfItems > 14) {
+        text = "The website about recent games of local sports teams you created last week for fun gets recognition!";
+        }
+        else if(this.amountOfItems > 9) {
+	  text = "A local geek magazine publishes snippets of your code in the 'funny' section.";
+        }
+        else if(this.amountOfItems > 4) {
+	  text = "Your text-based tic-tac-toe doesn't really excite your friends as much as yourself.";
+        }
         
-        }
-        else if() {
-        
-        }
-        else if() {
-        
-        }
-        else if() {
-        
-        }
-        else if() {
-        
-        }
-        else if() {
-        
-        }
-        */
         else if(this.amountOfItems > 0) {
-            text = "napisales pierwszo linijke...";
+            text = "This is it... Your Personal Computer outputs the first 'Hello World' of yours!";
         }
         else {
-            text = "Click on StackOverflow logo to get exp!";
+	  text = "You wake up with a new vision of your life as a programmer. But you don't know anything about programming. \nClick on the StackOverflow logo to begin the adventure!";
+            //text = "Click on StackOverflow logo to get exp!";
         }
         $("#quote").html(text);  
     }

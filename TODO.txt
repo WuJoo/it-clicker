@@ -1,3 +1,2 @@
-1. dodać bazę tekstów
-2. ogarnąć żeby działało pod IE
-3. ogarnąć klasy cssów
+1. css
+2. IE? safari?

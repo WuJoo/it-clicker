@@ -144,8 +144,8 @@ header, footer {
     background-image:-o-linear-gradient(top,#ffa31a 0%,#995c00 100%);
     background-image:-ms-linear-gradient(top,#ffa31a 0%,#995c00 100%);
     
-    -moz-border-radius: 10px; /* Firefox */
-    -webkit-border-radius: 10px; /* Webkit */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
